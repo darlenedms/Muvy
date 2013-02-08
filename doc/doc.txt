@@ -1,0 +1,44 @@
+Cronograma
+
+0 - Nivelamento do conhecimento
+1 - Ter ideias(07/02/2013)
+2 - Verificar viabilidade(07/02/2013)
+3 - Iniciar projeto(08 ou 09 do 02 de 2013)
+    • análise
+    • modelo
+    • implementação/codificação
+    • teste
+4 - Término(15/02/2013)
+
+--------------------------------------------
+
+Projeto - Desenvolver um sistema capaz de cadastrar filmes, adicionar locais e realizar buscas.
+
+Os locais são representações de locais físicos, seja pastas(com posição), seja um pc.
+
+Dentro dos locais estarão os discos físicos de filmes. No PC, existirão diretórios. Dentro do disco(DVD) e dos diretórios estarão os arquivos de mídia(filme).
+
+
+
+--------------------------------------------
+Ideias
+
+1 - Localizador de filmes em dvds
+Problema: Tenho muitos filmes gravados em dvds físicos, que ficam guardados em diferentes pastas. Toda vez que desejo assistir um filme, preciso verificar cada um dos cds em cada página até encontrar.
+Proposta: App onde fosse possível cadastrar o nome e localização dos filmes que possuo, assim ficaria mais fácil localizá-los. Seria interessante a integração com algum serviço (a api do rottentomatos http://developer.rottentomatoes.com, por exemplo) que disponibilizasse mais informações sobre o filme, como cartaz, descrição, opinião de quem já assistiu...
+
+2 - criar blog simples em javascript
+
+3 - calculadora "diferenciada"(pensar)
+
+4 - Plataforma de votação para cover de músicas
+Problema: Encontrar bons covers de músicas que já gostamos e consequentemente encontrar boas bandas.
+Proposta: App que permitisse que as pessoas enviassem o endereço do youtube de um cantor/banda fazendo cover de uma música e o endereço do original. E então, outras pessoas poderiam votar se o cover é melhor que o original, ou simplesmente votar se gostaram do cover ou não.
+
+5 - Gerenciador de despesas
+
+6 - um de biblioteca
+
+7 - Eventos com lista de convidados
+
+8 - lista de compras( com comparações entre preços de produtos)
