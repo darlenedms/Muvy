@@ -1,4 +1,4 @@
 Muvy
 ======
 
-App para encontrar meus filmes em pastas físicas e virtuais
+App para encontrar filmes em pastas físicas e virtuais.
