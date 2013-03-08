@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+	<!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Collection</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+
+		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+		<link rel="stylesheet" href="../css/normalize.css">
+		<link rel="stylesheet" href="../css/main.css">
+		<!--<script src="../js/vendor/modernizr-2.6.2.min.js"></script>-->
+		<script src="../js/vendor/knockout-2.2.1.js"></script>
+		
+		<script>
+			var model = {};
+			
+			model.Conta = function(nome){
+				this.numero = Math.floor((Math.random()*1000)+1); 
+				this.nome = nome;
+								
+				this.extrato = function(){
+					return "extrato";
+				}
+				
+			};
+			
+			var collection = {};
+			collection.Contas = function(){
+				var _contas = ko.observableArray();
+				this.add = function(conta){
+					_contas.push(conta);
+				}.bind(this);
+				this.remove = function(conta){
+					_contas.splice(_contas.indexOf(conta), 1);
+				}.bind(this);
+			}
+		</script>
+		<script>
+			function init(){
+				var viewModel = {};
+				viewModel.Containers = [
+							new model.Conta("Conta1"),
+							new model.Conta("Conta2"),
+							new model.Conta("Conta3")
+							];
+				viewModel.showRenderTimes = ko.observable(false)
+				
+
+				ko.applyBindings(viewModel);
+			}
+		</script>
+		<script>
+			function addEvent(elemento, evento, funcao){
+				if (elemento.addEventListener) elemento.addEventListener(evento, funcao, true);
+				if (elemento.attachEvent) elemento.attachEvent("on"+evento, funcao);
+			}
+			addEvent(window,"load",init);
+			
+		</script>
+	</head>
+	<body>
+		<h1>Teste de Coleção no knockoutjs</h1>
+		<h2>Movies</h2>
+		<ul data-bind="foreach: Containers">
+			<li>
+				<div>
+					<span data-bind="text: nome"> </span>
+				</div>
+				
+			</li>
+		</ul>
+		<label>
+			<input data-bind='checked: showRenderTimes' type='checkbox' />
+			Show render times</label>
+	</body>
+</html>

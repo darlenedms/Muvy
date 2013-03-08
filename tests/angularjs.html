@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Angular test</title>
+	</head>
+
+	<body ng-controller="Teste">
+		<h1>Angularjs Simple Test</h1>
+		<form>
+			<label for="mname">Nome</label>
+			<input id="mname" type="text" ng-model="new_movie.name"/><br />
+			<label for="mntitle">Titulo</label>
+
+			<input id="mntitle" type="text" ng-model="new_movie.title"/><br />
+			<label for="mnumber">Numero</label>
+
+			<input id="mnumber" type="text" ng-model="new_movie.number"/><br />
+			<input type="submit" ng-click="save()"/>
+		</form>
+		<h2>All Movies ({{movies.length}})</h2>
+		<div >
+			<ul ng-repeat="movie in movies">
+				<li>{{movie.name}}</li>
+				<li>{{movie.title}}</li>
+				<li>{{movie.number}}</li>
+				<li><a href="#" ng-click="edit(movie)">Editar</a> | <a href="#" ng-click="remove(movie)">Excluir</a></li>
+			</ul>
+		</div>
+		<script src="../js/vendor/jquery-1.9.1.min.js"></script>
+		<script src="../js/vendor/angular.min.js"></script>
+		<script>
+			var model = {};
+			
+			//regra de negocio aqui
+			model.Movie = function (name, title, number){
+				this.name = name ? name : "none";
+				this.title = title ? title : "none";
+				this.number = number ? number : 0;
+			};
+			
+			
+			//controller
+			function Teste($scope,$http,$window){
+				function reset(){
+					$scope.new_movie = new model.Movie();					
+				}
+				
+				$scope.save = function(){
+					if($scope.movies.indexOf(this.new_movie) < 0)
+						this.movies.unshift(this.new_movie);
+					reset();
+				};
+				
+				$scope.edit = function(movie){
+					$scope.new_movie = movie;
+				};
+				
+				$scope.remove = function(movie){
+					var confirm = $window.confirm('Deseja remover este filme?');
+					if(confirm)
+						$scope.movies.splice($scope.movies.indexOf(movie),1);
+				};
+				
+				
+				$scope.movies = [
+					new model.Movie("Matrix","scifi",5),
+					new model.Movie("Piratas do Caribe","aventura",5),
+					new model.Movie("Exterminador","fps",5)
+				];
+				
+				reset();
+				
+			}
+		</script>
+	</body>
+</html>
